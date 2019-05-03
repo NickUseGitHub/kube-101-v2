@@ -4,8 +4,11 @@
   "description": "test docker-slim",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Chaiwat Tungtonsoontorn<nickt.tnick@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
 }
