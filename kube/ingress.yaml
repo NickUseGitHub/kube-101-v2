@@ -9,7 +9,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /testapp
+      - path: /testa
         backend:
-          serviceName: nick-service
+          serviceName: nick-service-a
           servicePort: 3001
+      - path: /testb
+        backend:
+          serviceName: nick-service-b
+          servicePort: 3002

@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    nick-app-b: nick-app-b
+  name: nick-app-b
+  namespace: nick-space
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      nick-app-b: nick-app-b
+  template:
+    metadata:
+      labels:
+        nick-app-b: nick-app-b
+    spec:
+      containers:
+      - image: koa-app:v2
+        name: nick-app-b
+        ports:
+        - containerPort: 3000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    nick-service-b: nick-service-b
+  name: nick-service-b
+  namespace: nick-space
+spec:
+  ports:
+  - port: 3002
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    nick-app-b: nick-app-b
+  type: NodePort
+

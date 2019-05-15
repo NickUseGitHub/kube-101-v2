@@ -2,22 +2,22 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    nick-app: nick-app
-  name: nick-app
+    nick-app-a: nick-app-a
+  name: nick-app-a
   namespace: nick-space
 spec:
   replicas: 3
   selector:
     matchLabels:
-      nick-app: nick-app
+      nick-app-a: nick-app-a
   template:
     metadata:
       labels:
-        nick-app: nick-app
+        nick-app-a: nick-app-a
     spec:
       containers:
       - image: koa-app:v1
-        name: nick-app
+        name: nick-app-a
         ports:
         - containerPort: 3000
 ---
@@ -26,8 +26,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    nick-service: nick-service
-  name: nick-service
+    nick-service-a: nick-service-a
+  name: nick-service-a
   namespace: nick-space
 spec:
   ports:
@@ -35,6 +35,6 @@ spec:
     protocol: TCP
     targetPort: 3000
   selector:
-    nick-app: nick-app
+    nick-app-a: nick-app-a
   type: NodePort
 
