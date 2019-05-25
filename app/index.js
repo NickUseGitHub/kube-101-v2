@@ -1,12 +1,14 @@
 const Koa = require('koa');
 const app = new Koa();
-const port = 3000; 
+
+const serverName = process.env.SERVER_NAME;
+const port = process.env.PORT; 
 
 // response
 app.use(ctx => {
-  ctx.body = 'Hello Koa V.1';
+  ctx.body = `Hello Koa V.1 ${serverName}`;
 });
  
-app.listen(3000);
+app.listen(port);
 
 console.log(`Ready on port: ${port}`) 

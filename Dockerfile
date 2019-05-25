@@ -12,4 +12,6 @@ RUN chmod -R 555 ${HOME} \
 
 USER node:node
 
+EXPOSE $PORT
+
 CMD ["yarn", "start"]
