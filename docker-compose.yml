@@ -1,8 +1,37 @@
-version: "3"
+version: "2"
 services:
+  appa:
+    image: koa-app:v1
+    expose:
+      - 3001
+    networks:
+      backend:
+    environment:
+      - PORT=3001
+      - SERVER_NAME=appa
+
+  appb:
+    image: koa-app:v1
+    expose:
+      - 3002
+    networks:
+      backend:
+    environment:
+      - PORT=3002
+      - SERVER_NAME=appb
+
   nginx:
     build:
       context: .
       dockerfile: ./Dockerfile-nginx
     ports:
-      - 3000:80
+      - 80:80
+      - 81:81
+    networks:
+      backend:
+      frontend:
+
+networks:
+  backend:
+    internal: true
+  frontend:
