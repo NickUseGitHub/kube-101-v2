@@ -4,9 +4,9 @@ const port = 3000;
 
 // response
 app.use(ctx => {
-  ctx.body = 'Hello Koa V.2';
+  ctx.body = 'Hello Koa V.1';
 });
  
 app.listen(3000);
 
-console.log(`Ready on port: ${port}`)
+console.log(`Ready on port: ${port}`) 
