@@ -29,6 +29,8 @@ services:
     ports:
       - 80:80
       - 81:81
+    volumes:
+      - ./nginxcache:/var/cache/nginx
     networks:
       backend:
       frontend:
