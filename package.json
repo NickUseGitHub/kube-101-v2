@@ -9,6 +9,7 @@
   "author": "Chaiwat Tungtonsoontorn<nickt.tnick@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.7.0"
+    "koa": "^2.7.0",
+    "koa-route": "^3.2.0"
   }
 }
