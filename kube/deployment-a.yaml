@@ -18,6 +18,11 @@ spec:
       containers:
       - image: koa-app:v1
         name: nick-app-a
+        env:
+          - name: SERVER_NAME
+            value: "appa"
+          - name: PORT
+            value: "3000"
         ports:
         - containerPort: 3000
 ---
