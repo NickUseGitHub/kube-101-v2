@@ -1,0 +1,5 @@
+FROM nginx:1.16.0-alpine
+
+COPY ./.conf /etc/nginx
+
+EXPOSE 80

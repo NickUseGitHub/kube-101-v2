@@ -16,3 +16,9 @@ init-ingress:
 
 terminate:
 	kubectl delete -f ./kube
+
+docpose-build:
+	docker-compose up --build
+
+docpose:
+	docker-compose up

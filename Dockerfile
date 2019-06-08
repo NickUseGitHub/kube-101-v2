@@ -5,11 +5,13 @@ WORKDIR $HOME
 COPY ./package.json $HOME
 
 RUN yarn
-COPY . $HOME
+COPY ./app $HOME
 
 RUN chmod -R 555 ${HOME} \
   && chown -fR node:node ${HOME}
 
 USER node:node
+
+EXPOSE $PORT
 
 CMD ["yarn", "start"]

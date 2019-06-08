@@ -1,0 +1,39 @@
+version: "2"
+services:
+  appa:
+    build:
+      context: .
+    expose:
+      - 3001
+    networks:
+      backend:
+    environment:
+      - PORT=3001
+      - SERVER_NAME=appa
+
+  appb:
+    build:
+      context: .
+    expose:
+      - 3002
+    networks:
+      backend:
+    environment:
+      - PORT=3002
+      - SERVER_NAME=appb
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-nginx
+    ports:
+      - 80:80
+      - 81:81
+    networks:
+      backend:
+      frontend:
+
+networks:
+  backend:
+    internal: true
+  frontend:
