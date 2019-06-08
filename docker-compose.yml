@@ -1,7 +1,8 @@
 version: "2"
 services:
   appa:
-    image: koa-app:v1
+    build:
+      context: .
     expose:
       - 3001
     networks:
@@ -11,7 +12,8 @@ services:
       - SERVER_NAME=appa
 
   appb:
-    image: koa-app:v1
+    build:
+      context: .
     expose:
       - 3002
     networks:
