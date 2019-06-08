@@ -16,7 +16,7 @@ spec:
         nick-app-b: nick-app-b
     spec:
       containers:
-      - image: koa-app:v2
+      - image: koa-app:v1
         name: nick-app-b
         ports:
         - containerPort: 3000
