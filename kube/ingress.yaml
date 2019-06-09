@@ -7,6 +7,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
+  tls:
+    - secretName: koa-a-com-tls
+      hosts:
+        - koa-a.com
   rules:
     - host: koa-a.com
       http:
