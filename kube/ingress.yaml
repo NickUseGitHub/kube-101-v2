@@ -8,13 +8,26 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - http:
-      paths:
-      - path: /testa
-        backend:
-          serviceName: nick-service-a
-          servicePort: 3001
-      - path: /testb
-        backend:
-          serviceName: nick-service-b
-          servicePort: 3002
+    - host: koa-a.com
+      http:
+        paths:
+        - backend:
+            serviceName: nick-service-a
+            servicePort: 3001
+    - host: koa-b.com
+      http:
+        paths:
+        - backend:
+            serviceName: nick-service-b
+            servicePort: 3002
+    
+    # - http:
+    #   paths:
+    #   - path: /testa
+    #     backend:
+    #       serviceName: nick-service-a
+    #       servicePort: 3001
+    #   - path: /testb
+    #     backend:
+    #       serviceName: nick-service-b
+    #       servicePort: 3002
