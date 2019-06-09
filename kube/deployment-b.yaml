@@ -19,8 +19,12 @@ spec:
       - image: koa-app:v1
         name: nick-app-b
         env:
+          - name: ANOTHER_SERVER_HOST
+            value: "nick-service-a"
+          - name: ANOTHER_SERVER_PORT
+            value: "3001"
           - name: SERVER_NAME
-            value: "appa"
+            value: "appb"
           - name: PORT
             value: "3000"
         ports:
