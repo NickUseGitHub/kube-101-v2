@@ -1,5 +1,7 @@
 const axios = require('axios');
+const fs = require('fs');
 const koaRoute = require('koa-route');
+const path = require('path');
 const Koa = require('koa');
 const app = new Koa();
 
@@ -13,6 +15,19 @@ app.use(koaRoute.get('/appdata', function(ctx) {
   ctx.body = JSON.stringify({
     name: serverName
   });
+}));
+
+app.use(koaRoute.get('/callstaticfile', async function(ctx) {
+  const data = await new Promise(function (resolve) {
+    fs.readFile(path.resolve(__dirname, './static/someStatic.json'), 'utf8', function (err, datafile) {
+      if (err) throw err;
+      resolve(datafile);
+    });
+  });
+
+  console.log('data', data)
+  ctx.set('Content-Type', 'application/json');
+  ctx.body = JSON.parse(data);
 }));
 
 app.use(koaRoute.get('/callanotherservice', async function(ctx) {

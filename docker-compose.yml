@@ -1,8 +1,17 @@
 version: "2"
 services:
+  application:
+    image: busybox
+    volumes:
+      - ./app/static:/home/node/app/static
+
   appa:
     build:
       context: .
+    volumes_from: 
+      - application
+    depends_on:
+      - application
     expose:
       - 3001
     networks:
@@ -16,6 +25,10 @@ services:
   appb:
     build:
       context: .
+    volumes_from: 
+      - application
+    depends_on:
+      - application
     expose:
       - 3002
     networks:
@@ -30,6 +43,9 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile-nginx
+    depends_on:
+      - appa
+      - appb
     ports:
       - 80:80
       - 81:81
