@@ -8,7 +8,8 @@ init-ingress-mandatory:
 	&& kubectl apply -f ./kube/cloud-generic.yaml
 
 deployment:
-	kubectl apply -f ./kube/deployment-a.yaml \
+	kubectl apply -f ./kube/persistVolumn.yaml \
+	&& kubectl apply -f ./kube/deployment-a.yaml \
 	&& kubectl apply -f ./kube/deployment-b.yaml
 
 init-ingress:
