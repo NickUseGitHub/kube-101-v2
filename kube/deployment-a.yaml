@@ -15,10 +15,6 @@ spec:
       labels:
         nick-app-a: nick-app-a
     spec:
-      volumes:
-      - name: node-pv-storage
-        persistentVolumeClaim:
-          claimName: node-pv-claim
       containers:
       - image: koa-app:v1
         name: nick-app-a
@@ -34,8 +30,12 @@ spec:
         ports:
         - containerPort: 3000
         volumeMounts:
-        - mountPath: "/home/node/app/static"
+        - mountPath: /home/node/app/static
           name: node-pv-storage
+      volumes:
+      - name: node-pv-storage
+        persistentVolumeClaim:
+          claimName: node-pv-claim
 ---
 
 apiVersion: v1
