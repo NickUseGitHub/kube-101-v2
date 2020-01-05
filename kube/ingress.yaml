@@ -10,15 +10,15 @@ spec:
   tls:
     - secretName: koa-a-com-tls
       hosts:
-        - koa-a.com
+        - www.koa-a.com
   rules:
-    - host: koa-a.com
+    - host: www.koa-a.com
       http:
         paths:
         - backend:
             serviceName: nick-service-a
             servicePort: 3001
-    - host: koa-b.com
+    - host: www.koa-b.com
       http:
         paths:
         - backend:
